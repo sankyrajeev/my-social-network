@@ -1,0 +1,26 @@
+{
+  "name": "my-social-network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start":"node server.js",
+    "watch":"nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sankyrajeev/my-social-network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sankyrajeev/my-social-network/issues"
+  },
+  "homepage": "https://github.com/sankyrajeev/my-social-network#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.4",
+    "nodemon": "^2.0.20"
+  }
+}
