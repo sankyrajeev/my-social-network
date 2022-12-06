@@ -72,6 +72,20 @@ const userController = {
             res.status(500).json(err);
           });
     },
+
+    updateUser(req,res){
+        User.findOneAndUpdate({_id:req.params.Id},{$set:req.body},{new:true})
+        .then(dbUserdata => {
+          if (!dbUserdata) {
+            return res.status(404).json("User Not found");
+          }
+          res.json("User succesfully updated");
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+      },
 }
 
 
