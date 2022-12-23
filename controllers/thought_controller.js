@@ -58,10 +58,10 @@ const thoughtControl = {
   },
 
   // npm run start
-  
+
 
   deleteThought(req, res) {
-    Thought.findOneAndRemove({ _id: req.params.thoughtId })
+    Thought.findOneAndRemove({ _id: req.params.Id })
     .then((dbUserdata) => {
         res.json(dbUserdata)
     })
@@ -72,7 +72,7 @@ const thoughtControl = {
 },
 
   addreaction(req, res) {
-    Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $push: { reactions: req.body } }, { new: true })
+    Thought.findOneAndUpdate({ _id: req.params.Id }, { $push: { reactions: req.body } }, { new: true })
       .then(dbUserdata => {
         if (!dbUserdata) {
           return res.status(404).json("Thought Not Found");

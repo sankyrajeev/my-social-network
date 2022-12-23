@@ -1,5 +1,6 @@
 const { Schema, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
+const { ObjectId } = require('bson');
 
 const reactionSchema = new Schema(
   {
@@ -26,7 +27,7 @@ const reactionSchema = new Schema(
     toJSON: {
       getters: true
     },
-    id: false
+    _id: false
   }
 );
 
