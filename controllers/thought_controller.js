@@ -57,26 +57,37 @@ const thoughtControl = {
 
   },
 
+  // deleteThought(req, res) {
+  //   Thought.deleteOne({ _id: req.params.thoughtId })
+  //     .then((thoughtData) => {
+  //       if (!thoughtData) {
+  //         return res.status(404).json("Thought not found with this ID");
+  //       }
+  //       return User.findOneAndUpdate({ thoughts: req.params.thoughtId }, { $pull: { thoughts: req.params.thoughtId } }, { new: true });
+
+
+  //     }).then(dbUserdata => {
+  //       if (!dbUserdata) {
+  //         return res.status(404).json("no User found with this ID");
+  //       }
+  //       res.json("Thought succesfully deleted");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       res.status(500).json(err);
+  //     });
+  // },
+
   deleteThought(req, res) {
     Thought.deleteOne({ _id: req.params.thoughtId })
-      .then((thoughtData) => {
-        if (!thoughtData) {
-          return res.status(404).json("Thought not found with this ID");
-        }
-        return User.findOneAndUpdate({ thoughts: req.params.thoughtId }, { $pull: { thoughts: req.params.thoughtId } }, { new: true });
-
-
-      }).then(dbUserdata => {
-        if (!dbUserdata) {
-          return res.status(404).json("no User found with this ID");
-        }
-        res.json("Thought succesfully deleted");
-      })
-      .catch((err) => {
+    .then((dbUserdata) => {
+        res.json(dbUserdata)
+    })
+    .catch((err) => {
         console.log(err);
         res.status(500).json(err);
-      });
-  },
+    });
+},
 
   addreaction(req, res) {
     Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $push: { reactions: req.body } }, { new: true })

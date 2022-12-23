@@ -12,7 +12,7 @@ router.route('/:Id')
 .delete(deleteUser)
 .put(updateUser)
 
-router.route(':userId/friends/:friendId')
+router.route('/:userId/friends/:friendId')
 .post(addNewFriend)
 .delete(deleteFriend)
 

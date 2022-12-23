@@ -11,10 +11,10 @@ router.route('/:Id')
 .delete(deleteThought)
 .put(updateThought);
 
-router.route(':thoughtId/reactions')
+router.route('/:thoughtId/reactions')
 .post(addreaction)
 
-router.route(':thoughtId/reactions/:reactionId')
+router.route('/:thoughtId/reactions/:reactionId')
 .delete(deletereaction)
 
 
