@@ -86,7 +86,7 @@ const thoughtControl = {
   },
 
   deletereaction(req, res) {
-    Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $pull: { reactions:{reactionId:req.params.reactionId} } }, { new: true })
+    Thought.findOneAndUpdate({ _id: req.params.Id }, { $pull: { reactions:{reactionId:req.params.reactionId} } }, { new: true })
       .then(dbUserdata => {
         if (!dbUserdata) {
           return res.status(404).json("Thought Not Found");
